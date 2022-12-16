@@ -1,0 +1,203 @@
+###
+# пользователь может отправить данные для регистрации;
+POST http://127.0.0.1:8000/api/v1/user/register
+Content-Type: application/json
+
+{
+        "first_name": "Vera",
+        "last_name": "Kormazova",
+        "email": "vkormaz@mail.com",
+        "password": "04062006Mk#",
+        "company": "Company23",
+        "position": "Position6"
+    }
+
+###
+# и получение email с подтверждением регистрации;
+POST http://127.0.0.1:8000/api/v1/user/register/confirm
+Content-Type: application/json
+
+{
+  "email":"vkormaz@mail.com",
+  "token":"dea7241016f857da7bc6e6e754fc"
+
+}
+
+###
+# пользователь может авторизоваться;
+POST http://127.0.0.1:8000/api/v1/user/login
+Content-Type: application/json
+
+{
+  "email":"verkormazova@mail.com",
+  "password":"03082006Mk#"
+}
+
+###
+# получить данные пользователя;
+GET http://127.0.0.1:8000/api/v1/user/details
+Content-Type: application/json
+Authorization: Token 66d0804a14ab4c497c0e76ee61f45bf51f3fe243
+
+{
+        "first_name": "Vera",
+        "last_name": "Kormazova",
+        "email": "verkormazova@mail.com",
+        "password": "03082006Mk#",
+        "company": "Company",
+        "position": "Position56",
+        "type" : "buyer"
+}
+
+###
+# получить список категорий товаров;
+GET http://127.0.0.1:8000/api/v1/categories
+
+
+
+###
+# получить список магазинов;
+GET http://127.0.0.1:8000/api/v1/shops
+
+
+###
+# получить список продуктов;
+GET http://127.0.0.1:8000/api/v1/products
+
+
+###
+# получить контакты пользователя;
+GET http://127.0.0.1:8000/api/v1/user/contact
+Authorization: Token 66d0804a14ab4c497c0e76ee61f45bf51f3fe243
+
+
+###
+# добавить новый контакт;
+POST http://127.0.0.1:8000/api/v1/user/contact
+Authorization: Token 66d0804a14ab4c497c0e76ee61f45bf51f3fe243
+Content-Type: application/json
+
+{
+                "city": "Moscow",
+                "street": "Tverskaya",
+                "house": "34",
+                "structure": "3",
+                "building": "1",
+                "apartment": "45",
+                "phone": "385-58-87"
+                }
+
+###
+# изменить контакт;
+PUT http://127.0.0.1:8000/api/v1/user/contact
+Authorization: Token 66d0804a14ab4c497c0e76ee61f45bf51f3fe243
+Content-Type: application/json
+
+{
+                "city": "Saint-Petersburg",
+                "street": "Ruzovskaya",
+                "house": "34",
+                "structure": "3",
+                "building": "1",
+                "apartment": "45",
+                "phone": "385-58-87",
+                "id": "4"
+                }
+
+###
+# удалить контакт;
+DELETE http://127.0.0.1:8000/api/v1/user/contact
+Authorization: Token 66d0804a14ab4c497c0e76ee61f45bf51f3fe243
+Content-Type: application/json
+
+{
+  "items" : "3"
+}
+
+###
+# просмотреть корзину;
+GET http://127.0.0.1:8000/api/v1/basket
+Authorization: Token 66d0804a14ab4c497c0e76ee61f45bf51f3fe243
+Content-Type:application/json
+
+###
+# добавить товар в корзину;
+POST http://127.0.0.1:8000/api/v1/basket
+Authorization: Token 66d0804a14ab4c497c0e76ee61f45bf51f3fe243
+Content-Type:application/json
+
+ {
+   "items":
+   [
+     {"product_info": 33,
+     "quantity": 1}
+   ]
+   }
+###
+
+
+###
+# удалить товар из корзины;
+DELETE http://127.0.0.1:8000/api/v1/basket
+Authorization: Token 66d0804a14ab4c497c0e76ee61f45bf51f3fe243
+Content-Type:application/json
+
+ {
+   "items": "11"
+
+   }
+
+###
+# пользователь может добавлять в корзину товары из разных магазинов;
+PUT http://127.0.0.1:8000/api/v1/basket
+Content-Type: application/json
+Authorization: Token 66d0804a14ab4c497c0e76ee61f45bf51f3fe243
+
+
+{
+    "items": [
+        {
+            "id": 1,
+            "quantity": 1
+
+        },
+        {
+            "id": 2,
+            "quantity": 1
+        }
+    ]
+}
+
+###
+# обновление прайса от поставщика
+POST http://127.0.0.1:8000/api/v1/partner/update
+Authorization: Token 66d0804a14ab4c497c0e76ee61f45bf51f3fe243
+Content-Type:application/json
+
+{
+  "url":
+  "https://raw.githubusercontent.com/netology-code/python-final-diplom/master/data/shop1.yaml"
+}
+
+###
+# пользователь может переходить на страницу "Заказы" и открывать созданный заказ;
+GET http://127.0.0.1:8000/api/v1/order
+Authorization: Token 66d0804a14ab4c497c0e76ee61f45bf51f3fe243
+Content-Type:application/json
+
+
+###
+# подтверждение заказа с вводом адреса доставки и пользователь получает email с подтверждением после ввода адреса доставки;
+POST http://127.0.0.1:8000/api/v1/order
+Authorization: Token 66d0804a14ab4c497c0e76ee61f45bf51f3fe243
+Content-Type:application/json
+
+{
+  "id": "6",
+  "contact": "1"
+}
+
+
+
+
+
