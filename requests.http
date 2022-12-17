@@ -169,7 +169,7 @@ Authorization: Token 66d0804a14ab4c497c0e76ee61f45bf51f3fe243
 }
 
 ###
-# обновление прайса от поставщика
+# обновление прайса от поставщика;
 POST http://127.0.0.1:8000/api/v1/partner/update
 Authorization: Token 66d0804a14ab4c497c0e76ee61f45bf51f3fe243
 Content-Type:application/json
