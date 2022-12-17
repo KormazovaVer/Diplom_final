@@ -45,8 +45,8 @@
 pip install -r requirements.txt
 
 ### Вам необходимо будет создать базу и прогнать миграции:
-python manage.py makemigrations
-python manage.py migrate
+python manage.py makemigrations;
+python manage.py migrate;
 python manage.py createsuperuser
 
 ### Выполнить команду:
@@ -54,7 +54,7 @@ python manage.py runserver
 
 ### Прописать адрес Redis сервера в settings 
 ### Запустить Redis:
-redis-server
+redis-server;
 redis-cli
 
 ### Выполнить команду во втором терминале:
